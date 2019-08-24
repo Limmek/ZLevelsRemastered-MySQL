@@ -124,10 +124,15 @@ namespace Oxide.Plugins
         private void OnServerInitialized()
         {
             if (conf.Options.updateAtStart && conf.MySQL.useMySQL) UpdateStatsData();
-                        
+            
             timer.Repeat((float)conf.Options.saveTimer, 0, () =>
             {
-                if (conf.MySQL.useMySQL) UpdateStatsData();
+                if (!conf.MySQL.useMySQL)
+                {
+                    ConsoleSystem.Run(ConsoleSystem.Option.Unrestricted, "oxide.unload ZLevelsRemasteredMySQL");
+                    return;
+                }
+                UpdateStatsData();
             });
             
         }
@@ -138,7 +143,7 @@ namespace Oxide.Plugins
             storedData = Interface.Oxide.DataFileSystem.ReadObject<PlayerData>("ZLevelsRemastered");
             foreach (var item in storedData.PlayerInfo)
             {
-                executeQuery($@"INSERT INTO {conf.MySQL.table} (player_id, WCL, WCP, ML, MP, SL, SP, AL, AP, CL, CP, LD, LLD, XPM, CUI, ONOFF) VALUES (@0, @1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15) ON DUPLICATE KEY UPDATE player_id={item.Key}, WCL={item.Value.WCL}, WCP={item.Value.WCP}, ML={item.Value.ML}, MP={item.Value.MP}, SL={item.Value.SL}, SP={item.Value.SP}, AL={item.Value.AL}, AP={item.Value.AP}, CL={item.Value.CL}, CP={item.Value.CP}, LD={item.Value.LD}, LLD={item.Value.LLD}, XPM={item.Value.XPM}, CUI={item.Value.CUI}, ONOFF={item.Value.ONOFF}",
+                executeQuery($@"INSERT INTO {conf.MySQL.table} (player_id, WCL, WCP, ML, MP, SL, SP, AL, AP, CL, CP, LD, LLD, XPM, CUI, ONOFF) VALUES (@0, @1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15) ON DUPLICATE KEY UPDATE player_id=@0, WCL=@1, WCP=@2, ML=@3, MP=@4, SL=@5, SP=@6, AL=@7, AP=@8, CL=@9, CP=@10, LD=@11, LLD=@12, XPM=@13, CUI=@14, ONOFF=@15",
                     item.Key,
                     item.Value.WCL,
                     item.Value.WCP,
