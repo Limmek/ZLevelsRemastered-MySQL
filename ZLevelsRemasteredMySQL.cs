@@ -6,7 +6,7 @@ using Oxide.Core.Database;
 
 namespace Oxide.Plugins
 {
-    [Info("ZLevelsRemasteredMySQL", "Limmek", "1.0.3")]
+    [Info("ZLevelsRemasteredMySQL", "Limmek", "1.0.4")]
     [Description("MySQL database add-on for ZLevels Remastered")]
     class ZLevelsRemasteredMySQL : RustPlugin
     {
