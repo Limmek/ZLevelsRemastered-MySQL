@@ -29,7 +29,7 @@
 
 * **saveTimer** - Save interval, X seconds. (*Default* - **10 minutes**)
 * **updateAtStart** - Update tables when plugin is loaded. (*Default* - **false**)
-* **TurncateDataOnMonthlyWipe** - Clear database on rust force wipe. (*Default* - **10 minutes**)
+* **TurncateDataOnMonthlyWipe** - Clear database on rust force wipe. (*Default* - **false**)
 * **TurncateDataOnMapWipe** - Clear database on map change. (*Default* - **false**)
 
 * **useMySQL** - Enable save to databse. (*Default* - **false**)
