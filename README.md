@@ -20,13 +20,18 @@
     "user": "username",
     "pass": "password",
     "db": "database",
-    "table": "zlevelsdata"
+    "table": "zlevelsdata",
+    "TurncateDataOnMonthlyWipe": false,
+    "TurncateDataOnMapWipe": false
   }
 }
 ```
 
 * **saveTimer** - Save interval, X seconds. (*Default* - **10 minutes**)
 * **updateAtStart** - Update tables when plugin is loaded. (*Default* - **false**)
+* **TurncateDataOnMonthlyWipe** - Clear database on rust force wipe. (*Default* - **10 minutes**)
+* **TurncateDataOnMapWipe** - Clear database on map change. (*Default* - **false**)
+
 * **useMySQL** - Enable save to databse. (*Default* - **false**)
 * **host** - ip / hostname 
 * **port** -  port  (*Default* - **3306**)
