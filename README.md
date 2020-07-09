@@ -11,7 +11,9 @@
 {
   "Options": {
     "saveTimer": 600,
-    "updateAtStart": false
+    "updateAtStart": false,
+    "TurncateDataOnMonthlyWipe": false,
+    "TurncateDataOnMapWipe": false
   },
   "MySQL": {
     "useMySQL": false,
@@ -20,9 +22,7 @@
     "user": "username",
     "pass": "password",
     "db": "database",
-    "table": "zlevelsdata",
-    "TurncateDataOnMonthlyWipe": false,
-    "TurncateDataOnMapWipe": false
+    "table": "zlevelsdata"
   }
 }
 ```
